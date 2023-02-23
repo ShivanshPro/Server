@@ -55,9 +55,9 @@ table_definition_cache      	= 2000
 # INNODB #
 innodb_log_file_size            = 1G
 innodb_file_per_table           = 1
-innodb_buffer_pool_size         = 4G
-tmp_table_size                  = 128M
-max_heap_table_size             = 128M
+innodb_buffer_pool_size         = 2G
+tmp_table_size                  = 15M
+max_heap_table_size             = 15M
 #innodb_flush_method            = O_DIRECT
 innodb_flush_log_at_trx_commit  = 0
 #innodb_force_recovery		      = 1
