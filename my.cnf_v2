@@ -39,11 +39,11 @@ tmpdir                          = /dev/shm
 #tmpdir                         = /var/tmp
 
 # CACHES AND LIMITS #
-max_connections                 = 1000
-max_user_connections            = 100
-wait_timeout                    = 120
-interactive_timeout             = 120
-connect_timeout                 = 90
+max_connections                 = 5000
+max_user_connections            = 500
+wait_timeout                    = 300
+interactive_timeout             = 300
+connect_timeout                 = 120
 
 query_cache_size            	= 100M
 query_cache_type            	= 2
