@@ -9,7 +9,7 @@ general_log_file               = /root/mysql_query.log
 port                           = 3306
 socket                         = /var/lib/mysql/mysql.sock
 default-character-set          = utf8
-#bind-address		               = 127.0.0.1
+#bind-address                  = 127.0.0.1
 [mysqld]
 
 # GENERAL #
@@ -43,7 +43,7 @@ max_connections                 = 1000
 max_user_connections            = 100
 wait_timeout                    = 120
 interactive_timeout             = 120
-connect_timeout			            = 90
+connect_timeout                 = 90
 
 query_cache_size            	= 100M
 query_cache_type            	= 2
