@@ -2,12 +2,14 @@
 default-character-set          = utf8
 
 [mysql]
+general_log                    = 1
+general_log_file               = /root/mysql_query.log
 
 # CLIENT #
 port                           = 3306
 socket                         = /var/lib/mysql/mysql.sock
 default-character-set          = utf8
-bind-address		               = 127.0.0.1
+#bind-address		               = 127.0.0.1
 [mysqld]
 
 # GENERAL #
@@ -37,11 +39,11 @@ tmpdir                          = /dev/shm
 #tmpdir                         = /var/tmp
 
 # CACHES AND LIMITS #
-max_connections                 = 10000
-max_user_connections            = 1000
-wait_timeout                    = 300
-interactive_timeout             = 300
-connect_timeout			            = 100
+max_connections                 = 1000
+max_user_connections            = 100
+wait_timeout                    = 120
+interactive_timeout             = 120
+connect_timeout			            = 90
 
 query_cache_size            	= 100M
 query_cache_type            	= 2
@@ -61,7 +63,7 @@ innodb_flush_log_at_trx_commit  = 0
 #innodb_force_recovery		      = 1
 
 # LOGGING #
-log_error                      = /var/lib/mysql/mysql-error.log
+log_error                      = /root/mysql-error.log
 
 [mysqldump]
 quick
