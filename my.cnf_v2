@@ -47,8 +47,8 @@ connect_timeout                 = 120
 
 query_cache_size            	= 100M
 query_cache_type            	= 2
-query_cache_limit           	= 20M
-join_buffer_size            	= 500K
+query_cache_limit           	= 100M
+join_buffer_size            	= 1M
 table_open_cache            	= 180
 table_definition_cache      	= 2000
 
@@ -56,8 +56,8 @@ table_definition_cache      	= 2000
 innodb_log_file_size            = 1G
 innodb_file_per_table           = 1
 innodb_buffer_pool_size         = 2G
-tmp_table_size                  = 15M
-max_heap_table_size             = 15M
+tmp_table_size                  = 100M
+max_heap_table_size             = 100M
 #innodb_flush_method            = O_DIRECT
 innodb_flush_log_at_trx_commit  = 0
 #innodb_force_recovery		      = 1
