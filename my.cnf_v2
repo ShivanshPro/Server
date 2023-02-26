@@ -1,0 +1,86 @@
+[client]
+default-character-set          = utf8
+
+[mysql]
+
+# CLIENT #
+port                           = 3306
+socket                         = /var/lib/mysql/mysql.sock
+default-character-set          = utf8
+#bind-address                  = 127.0.0.1
+[mysqld]
+
+# GENERAL #
+user                           = mysql
+#default_storage_engine         = InnoDB
+socket                         = /var/lib/mysql/mysql.sock
+pid_file                       = /var/lib/mysql/mysql.pid
+sql_mode                       = "NO_ENGINE_SUBSTITUTION"
+performance_schema             = off
+default-authentication-plugin  = mysql_native_password
+collation-server               = utf8_unicode_ci
+character-set-server           = utf8
+optimizer_search_depth         = 0
+#disable-log-bin
+
+# MyISAM #
+key_buffer_size                 = 2048M # find /var/lib/mysql/ -name *.MYI -ls | awk '{s = s + $7} END {print s/1048576 " MB"}'
+myisam_recover_options          = FORCE,BACKUP
+
+# SAFETY #
+max_allowed_packet              = 268435456
+max_connect_errors              = 1000000
+
+# DATA STORAGE #
+datadir                         = /var/lib/mysql/
+tmpdir                          = /dev/shm
+#tmpdir                         = /var/tmp
+
+# CACHES AND LIMITS #
+max_connections                 = 5000
+max_user_connections            = 500
+wait_timeout                    = 300
+interactive_timeout             = 300
+connect_timeout                 = 120
+
+query_cache_size            	  = 100M
+query_cache_type            	  = 2
+query_cache_limit           	  = 100M
+join_buffer_size            	  = 1M
+table_open_cache            	  = 180
+table_definition_cache      	  = 2000
+
+# INNODB #
+innodb_log_file_size            = 1G
+innodb_file_per_table           = 1
+innodb_buffer_pool_size         = 2G
+tmp_table_size                  = 100M
+max_heap_table_size             = 100M
+#innodb_flush_method            = O_DIRECT
+innodb_flush_log_at_trx_commit  = 0
+#innodb_force_recovery		    = 1
+
+# LOGGING #
+  
+log_error                      = /var/lib/mysql/mysql-error.log
+slow_query_log_file            = /var/lib/mysql/mysql-slow.log
+general_log_file               = /var/lib/mysql/mysql-query.log
+log_warnings                   = 1
+slow_query_log                 = 1
+log_queries_not_using_indexes  = 1
+general_log                    = 1
+
+# Log Query Limit #
+
+long_query_time                = 300
+
+# Log File Limit #
+
+max_slow_queries               = 5
+max_error_count                = 5
+max_binlog_files               = 5
+max_binlog_size                = 100M
+
+[mysqldump]
+quick
+#max_allowed_packet             = 1G
