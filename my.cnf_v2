@@ -58,7 +58,7 @@ tmp_table_size                  = 100M
 max_heap_table_size             = 100M
 #innodb_flush_method            = O_DIRECT
 innodb_flush_log_at_trx_commit  = 0
-#innodb_force_recovery		    = 1
+#innodb_force_recovery		      = 1
 
 # LOGGING #
   
