@@ -72,14 +72,14 @@ general_log                    = 1
 
 # Log Query Limit #
 
-long_query_time                = 300
+#long_query_time                = 300
 
 # Log File Limit #
 
-max_slow_queries               = 5
-max_error_count                = 5
-max_binlog_files               = 5
-max_binlog_size                = 100M
+#max_slow_queries               = 5
+#max_error_count                = 5
+#max_binlog_files               = 5
+#max_binlog_size                = 100M
 
 [mysqldump]
 quick
