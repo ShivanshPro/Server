@@ -1,10 +1,3 @@
-script
-malware
-virus
-phishing
-trojan
-spyware
-ransomware
-worm
-adware
-rootkit
+Mr.7Mind
+Imammrtdho
+RibelCyberTeam
