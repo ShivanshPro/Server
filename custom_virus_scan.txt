@@ -1,3 +1,6 @@
 Mr.7Mind
 Imammrtdho
 RibelCyberTeam
+eval
+scandir
+chmod
