@@ -41,7 +41,7 @@ max_connections                 = 10000
 max_user_connections            = 1000
 wait_timeout                    = 1800
 interactive_timeout             = 1800
-connect_timeout                 = 120
+#connect_timeout                 = 120
 
 query_cache_size                = 200M
 query_cache_type                = 2
