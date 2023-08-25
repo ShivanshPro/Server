@@ -24,13 +24,13 @@ optimizer_search_depth         = 0
 #disable-log-bin
 
 # MyISAM #
-key_buffer_size                 = 2048M # find /var/lib/mysql/ -name *.MYI -ls | awk '{s = s + $7} END {print s/1048576 " MB"}'
+key_buffer_size                 = 4048M # find /var/lib/mysql/ -name *.MYI -ls | awk '{s = s + $7} END {print s/1048576 " MB"}'
 myisam_recover_options          = FORCE,BACKUP
 
 # SAFETY #
-max_allowed_packet              = 268435456
+max_allowed_packet              = 1073741824
 max_connect_errors              = 1000000
-
+open_files_limit                = 80000
 # DATA STORAGE #
 datadir                         = /var/lib/mysql/
 tmpdir                          = /dev/shm
@@ -39,27 +39,26 @@ tmpdir                          = /dev/shm
 # CACHES AND LIMITS #
 max_connections                 = 10000
 max_user_connections            = 1000
-wait_timeout                    = 300
-interactive_timeout             = 300
-connect_timeout                 = 180
+wait_timeout                    = 1800
+interactive_timeout             = 1800
+connect_timeout                 = 120
 
-query_cache_size            	= 200M
-query_cache_type            	= 2
-query_cache_limit           	= 200M
-join_buffer_size            	= 1M
-table_open_cache            	= 180
-table_definition_cache      	= 2000
-#open_files_limit               = 60000
+query_cache_size                = 200M
+query_cache_type                = 2
+query_cache_limit               = 250M
+join_buffer_size                = 2M
+table_open_cache                = 200
+table_definition_cache          = 2000
 
 # INNODB #
 innodb_log_file_size            = 1G
 innodb_file_per_table           = 1
 innodb_buffer_pool_size         = 2G
-tmp_table_size                  = 100M
-max_heap_table_size             = 100M
+tmp_table_size                  = 200M
+max_heap_table_size             = 200M
 #innodb_flush_method            = O_DIRECT
 innodb_flush_log_at_trx_commit  = 0
-#innodb_force_recovery		      = 1
+#innodb_force_recovery           = 1
 
 # LOGGING #
 
