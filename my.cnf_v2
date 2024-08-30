@@ -16,7 +16,7 @@ user                           = mysql
 socket                         = /var/lib/mysql/mysql.sock
 pid_file                       = /var/lib/mysql/mysql.pid
 sql_mode                       = "NO_ENGINE_SUBSTITUTION"
-performance_schema             = ON
+performance_schema             = off
 default-authentication-plugin  = mysql_native_password
 collation-server               = utf8_unicode_ci
 character-set-server           = utf8
@@ -24,13 +24,13 @@ optimizer_search_depth         = 0
 #disable-log-bin
 
 # MyISAM #
-key_buffer_size                 = 800M # find /var/lib/mysql/ -name *.MYI -ls | awk '{s = s + $7} END {print s/1048576 " MB"}'
+key_buffer_size                 = 4048M # find /var/lib/mysql/ -name *.MYI -ls | awk '{s = s + $7} END {print s/1048576 " MB"}'
 myisam_recover_options          = FORCE,BACKUP
 
 # SAFETY #
-max_allowed_packet              = 256M
+max_allowed_packet              = 1073741824
 max_connect_errors              = 1000000
-open_files_limit                = 100000
+open_files_limit                = 80000
 # DATA STORAGE #
 datadir                         = /var/lib/mysql/
 tmpdir                          = /dev/shm
@@ -39,54 +39,26 @@ tmpdir                          = /dev/shm
 # CACHES AND LIMITS #
 max_connections                 = 10000
 max_user_connections            = 1000
-wait_timeout                    = 600
-interactive_timeout             = 600
-connect_timeout                 = 600
+wait_timeout                    = 1800
+interactive_timeout             = 1800
+#connect_timeout                 = 120
 
-query_cache_size                = 0
-query_cache_type                = 0
-query_cache_limit               = 0
-join_buffer_size                = 4M
-table_open_cache                = 4096
-table_definition_cache          = 8192
-
-# Connection Management
-back_log                        = 512
-thread_cache_size               = 200
-
-# Cache and Buffer Management
-table_open_cache_instances      = 16
-read_buffer_size                = 4M
-read_rnd_buffer_size            = 16M
-sort_buffer_size                = 4M
+query_cache_size                = 200M
+query_cache_type                = 2
+query_cache_limit               = 250M
+join_buffer_size                = 2M
+table_open_cache                = 200
+table_definition_cache          = 2000
 
 # INNODB #
-innodb_log_file_size            = 4G
+innodb_log_file_size            = 1G
 innodb_file_per_table           = 1
-innodb_buffer_pool_size         = 24G
-tmp_table_size                  = 1G
-max_heap_table_size             = 1G
+innodb_buffer_pool_size         = 2G
+tmp_table_size                  = 200M
+max_heap_table_size             = 200M
 #innodb_flush_method            = O_DIRECT
-#innodb_force_recovery           = 1
-innodb_flush_method             = O_DIRECT
 innodb_flush_log_at_trx_commit  = 0
-innodb_io_capacity              = 4000
-innodb_read_io_threads          = 12
-innodb_write_io_threads         = 12
-innodb_thread_concurrency       = 24
-innodb_buffer_pool_instances    = 12
-innodb_flush_neighbors          = 0
-innodb_buffer_pool_instances    = 12
-innodb_flush_neighbors          = 0
-innodb_log_buffer_size          = 512M
-innodb_lru_scan_depth           = 2048
-innodb_io_capacity_max          = 8000
-innodb_thread_concurrency       = 24
-innodb_adaptive_flushing        = 1
-innodb_purge_threads            = 4
-innodb_autoinc_lock_mode        = 2
-
-
+#innodb_force_recovery           = 1
 
 # LOGGING #
 
