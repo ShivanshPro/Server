@@ -12,7 +12,7 @@ function setDollarValue(selector, value) {
 // Function to calculate percentage change
 function calculatePercentageChange(newValue, oldValue) {
     let difference = newValue - oldValue;
-    let percentage = oldValue === 0 ? NaN : (difference / oldValue) * 100; // Use NaN for division by zero
+    let percentage = oldValue === 0 ? 0 : (difference / oldValue) * 100; // Use NaN for division by zero
     return {
         difference: difference.toFixed(2),
         percentage: isNaN(percentage) ? "0" : percentage.toFixed(2) // Handle NaN cases
