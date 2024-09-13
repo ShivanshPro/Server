@@ -15,19 +15,19 @@ function calculatePercentageChange(newValue, oldValue) {
     let percentage = oldValue === 0 ? NaN : (difference / oldValue) * 100; // Use NaN for division by zero
     return {
         difference: difference.toFixed(2),
-        percentage: isNaN(percentage) ? "N/A" : percentage.toFixed(2) // Handle NaN cases
+        percentage: isNaN(percentage) ? "0" : percentage.toFixed(2) // Handle NaN cases
     };
 }
 
-// Set old values to be 2 to 3 times lower than new values
-var todayValue = 10.00;  // New value for today
-var yesterdayValue = 5.00;  // New value for yesterday
-var last7DaysValue = 30.00;  // New value for last 7 days
-var thisMonthValue = 100.00;  // New value for this month
+// Set old values to be approximately 2 to 3 times lower than new values
+var todayValue = 78.00;  // New value for today
+var yesterdayValue = 50.00;  // New value for yesterday
+var last7DaysValue = 430.00;  // New value for last 7 days
+var thisMonthValue = 1280.00;  // New value for this month
 
-var yesterdayOldValue = yesterdayValue / 2; // Old value is approximately 1/3 of the new value
-var last7DaysOldValue = last7DaysValue / 3; // Old value is approximately 1/3 of the new value
-var thisMonthOldValue = thisMonthValue / 2; // Old value is approximately 1/3 of the new value
+var yesterdayOldValue = yesterdayValue / 1.3; // Old value is approximately 1/3 of the new value
+var last7DaysOldValue = last7DaysValue / 2.1; // Old value is approximately 1/3 of the new value
+var thisMonthOldValue = thisMonthValue / 1.7; // Old value is approximately 1/3 of the new value
 
 // Calculate percentage changes
 var yesterdayChange = calculatePercentageChange(yesterdayValue, yesterdayOldValue);
